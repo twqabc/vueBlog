@@ -4,6 +4,7 @@ import About from './components/About.vue'
 import Home from './Home.vue'
 import ArticleEdit from './components/admin/ArticleEdit.vue'
 import AboutEdit from './components/admin/AboutEdit.vue'
+import ArticleListroot from './components/admin/ArticleListroot.vue'
 
 const routes = [
   {
@@ -37,6 +38,11 @@ const routes = [
       component: About
     },
     {
+      path: '/articleDetail/:id',
+      name: 'articleDetail_id',
+      component:ArticleDetail
+    },
+    {
       path: '/admin/articleEdit/:id',
       name: 'articleEdit_id',
       component: () => import('./components/admin/ArticleEdit.vue')
@@ -52,9 +58,9 @@ const routes = [
       component: AboutEdit
     },
     {
-      path: '/articleDetail/:id',
-      name: 'articleDetail_id',
-      component:ArticleDetail
+      path: '/admin/articleListroot',
+      name: 'articleListroot',
+      component:ArticleListroot
     }
     
  

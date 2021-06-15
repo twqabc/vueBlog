@@ -2,7 +2,7 @@ const postCollection = require("../config/mongoDbConnection").getCollection(
     "userCollection"
   );
 
-  //添加文章
+  //添加用户
 exports.save = async (user) => {
     try {
       const col = await postCollection();
