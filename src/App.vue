@@ -1,15 +1,15 @@
 <template>
-<div>
-  <div class="content">
-       <Bar/>
-  <Footer/>
-  <div class="about">
-  <router-view name="about"></router-view>
-  </div>
-  <router-view/>
+  <div>
+    <div class="content">
+      <Bar />
+      <Footer />
+      <div class="about">
+        <router-view name="about"></router-view>
+      </div>
+      <router-view />
 
+    </div>
   </div>
-</div>
 </template>
 
 <script>
@@ -28,16 +28,15 @@ export default {
 </script>
 
 <style>
-  .about {
-    padding-top: 30px;
-     display: grid;
-   align-items: center;
-   justify-items: center;
-   
-  }
-  #content {
-    width: 800px;
-    float: left;
-    background: white;
-  }
+.about {
+  padding-top: 30px;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+}
+#content {
+  width: 800px;
+  float: left;
+  background: white;
+}
 </style>
