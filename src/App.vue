@@ -6,7 +6,7 @@
       <div class="about">
         <router-view name="about"></router-view>
       </div>
-      <router-view />
+      <router-view v-if="isRouterAlive"></router-view>
 
     </div>
   </div>
@@ -23,8 +23,27 @@ export default {
   components: {
     Bar,
     Footer
+  },
+  provide() {
+    return {
+      reload: this.reload
+    }
+  },
+  data() {
+    return {
+      isRouterAlive: true
+    }
+  },
+  methods: {
+    reload() {
+      this.isRouterAlive = false
+      this.$nextTick(function () {
+        this.isRouterAlive = true
+      })
+    }
   }
 }
+
 </script>
 
 <style>

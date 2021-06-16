@@ -6,3 +6,10 @@ import 'element-plus/lib/theme-chalk/index.css'
 
 
 createApp(App).use(ElementPlus).use(router).mount('#app')
+
+
+// setInterval({
+//   function () {
+//     createApp(App).use(ElementPlus).use(router).mount('#app')
+//   }
+// },90)

@@ -5,6 +5,7 @@ import Home from './Home.vue'
 import ArticleEdit from './components/admin/ArticleEdit.vue'
 import AboutEdit from './components/admin/AboutEdit.vue'
 import ArticleListroot from './components/admin/ArticleListroot.vue'
+const a = { template: '<div>About的点点滴滴多多多多多多多多多多多多多多</div>' }
 
 const routes = [
   {
@@ -61,9 +62,16 @@ const routes = [
       path: '/admin/articleListroot',
       name: 'articleListroot',
       component:ArticleListroot
+    },
+    {
+      path: '/admin/a',
+      name: 'a',
+      component: a
     }
-    
- 
+]
+
+export const asyncroutes  = [
+
 ]
 
 const router = createRouter({
