@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="content">
+    <div class="container">
       <Bar />
       <Footer />
       <div class="about">
@@ -47,15 +47,10 @@ export default {
 </script>
 
 <style>
-.about {
+/* .about {
   padding-top: 30px;
   display: grid;
   align-items: center;
   justify-items: center;
-}
-#content {
-  width: 800px;
-  float: left;
-  background: white;
-}
+} */
 </style>

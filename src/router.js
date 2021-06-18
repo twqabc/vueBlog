@@ -5,9 +5,10 @@ import Home from './Home.vue'
 import ArticleEdit from './components/admin/ArticleEdit.vue'
 import AboutEdit from './components/admin/AboutEdit.vue'
 import ArticleListroot from './components/admin/ArticleListroot.vue'
-const a = { template: '<div>About的点点滴滴多多多多多多多多多多多多多多</div>' }
+import a from "./components/Test.vue"
+import NotFound from "./components/NotFound.vue"
 
-const routes = [
+export const routes = [
   {
     path: '/articleDetail',
     name: 'articleDetail',
@@ -46,38 +47,54 @@ const routes = [
     {
       path: '/admin/articleEdit/:id',
       name: 'articleEdit_id',
+      meta: {
+        auth: true,
+    },
       component: () => import('./components/admin/ArticleEdit.vue')
     },
     {
     path: '/admin/articleEdit',
     name: 'articleEdit',
+    meta: {
+      auth: true,
+  },
     component: ArticleEdit
     },
     {
       path: '/admin/aboutEdit',
       name: 'aboutEdit',
+      meta: {
+        auth: true,
+    },
       component: AboutEdit
     },
     {
       path: '/admin/articleListroot',
       name: 'articleListroot',
+      meta: {
+        auth: true,
+    },
       component:ArticleListroot
     },
     {
       path: '/admin/a',
       name: 'a',
+      meta: {
+        auth: true,
+    },
       component: a
+    },
+    {
+      path: "/404",
+      name: "notFound",
+      component: NotFound
     }
+  
 ]
 
-export const asyncroutes  = [
-
-]
-
-const router = createRouter({
+export const router = createRouter({
   history: createWebHistory(),
   routes,
   linkExactActiveClass: 'active'
 })
 
-export default router

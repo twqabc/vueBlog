@@ -1,15 +1,29 @@
 <template>
-  <div class="sign-wrap">
-    <h1>后台管理</h1>
-    <el-input v-model="name" placeholder="请输入用户名"></el-input>
-    <el-input v-model="password" placeholder="请输入密码" type="password"></el-input>
-    <el-button @click="signup">注册</el-button>
-    <el-button type="primary" @click="signin">登录</el-button>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-4 col-xs-0"></div>
+      <div class="mb-3 col-sm-4 col-xs-12">
+        <label for="exampleInputEmail1" class="form-label">Name</label>
+        <input class="form-control" v-model="name" id="exampleInputEmail1" aria-describedby="emailHelp">
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Password</label>
+          <input type="password" v-model="password" class="form-control" id="exampleInputPassword1">
+        </div>
+
+        <div class="mb-3">
+          <button class="btn signup btn-primary" @click="signup">注册</button>
+          <button class="btn signin btn-primary" @click="signin">登录</button>
+
+        </div>
+
+      </div>
+      <div class="col-sm-4 col-xs-0"></div>
+    </div>
   </div>
 </template>
 
 <script>
-
+// import { login } from "../api"
 import axios from 'axios'
 import { defineComponent, reactive, ref } from 'vue'
 
@@ -19,6 +33,10 @@ export default defineComponent({
     let password = ref('')
 
     const signup = async () => {//箭头函数
+      // let data = await login(name.value)
+      // localStorage.setItem("lastname", "smith")
+      // console.log(data.data.data)
+
       if (name.value.length < 6) {
         alert('用户名不能为空或小于六个字符')
         return
@@ -55,6 +73,7 @@ export default defineComponent({
       }
       const response3 = await axios.get('/api/user/' + name.value + "/" + password.value)
       if (response3.data.length) {
+        localStorage.setItem("username", name.value)
         alert("登录成功")
       }
     }
@@ -68,16 +87,7 @@ export default defineComponent({
 })
 </script>
 <style scoped>
-.sign-wrap {
-  width: 300px;
-  margin: 200px auto;
-}
-#sign_wrap h1 {
-  color: #383a42;
-  padding: 10px;
-}
-
-#sign_wrap div {
-  padding-bottom: 20px;
+.signin {
+  margin-left: 20px;
 }
 </style>
