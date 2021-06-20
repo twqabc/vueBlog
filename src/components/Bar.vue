@@ -13,9 +13,9 @@
           <li class="nav-item">
             <router-link class="nav-link" to="/articleList">Blog</router-link>
           </li>
-          <!-- <li class="nav-item">
-            <router-link class="nav-link" to="/project">Project</router-link>
-          </li> -->
+          <li class="nav-item">
+            <router-link class="nav-link" to="/project">Anonymous</router-link>
+          </li>
           <li class="nav-item">
             <router-link class="nav-link" to="/signIn">Signin</router-link>
           </li>

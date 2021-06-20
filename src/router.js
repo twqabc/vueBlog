@@ -29,7 +29,7 @@ export const routes = [
   {
     path: '/project',
     name:'project',
-    component: () => import('./components/Project.vue')
+    component: () => import('./components/Anonymous.vue')
   },
   {
     path: '/',
