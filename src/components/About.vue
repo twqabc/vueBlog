@@ -1,14 +1,14 @@
 <template>
   <!-- <textarea id="markdown_input" v-model="content" @input="update"></textarea> -->
-  <div class="con">
-    <div class="container ">
-      <div class="row ">
-        <div class="col-sm-1 col-xs-1"></div>
-        <div class="col-sm-10 col-xs-10  " v-html="compiledMarkdown()"></div>
-        <div class="col-sm-1 col-xs-1"></div>
-      </div>
+
+  <div class="container ">
+    <div class="row">
+      <div class="col-sm-2 col-xs-2"></div>
+      <div class="col-sm-9 col-xs-9  " v-html="compiledMarkdown()"></div>
+      <div class="col-sm-1 col-xs-1"></div>
     </div>
   </div>
+
 </template>
 
 <script>

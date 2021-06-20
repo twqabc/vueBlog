@@ -47,6 +47,7 @@ export default defineComponent({
       }
       else {
         store.state.about = content.value
+        router.push('/')
       }
     }
 

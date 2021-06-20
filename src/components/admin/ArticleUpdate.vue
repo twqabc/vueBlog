@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import { defineComponent, ref, reactive, inject } from 'vue'
+import { defineComponent, ref, reactive } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 import { getDate } from "../../utils"
 
@@ -35,7 +35,6 @@ export default defineComponent({
     let article = ref('')
     const router = useRouter()
     const route = useRoute()
-    const reload = inject("reload")
     let id = route.params.id
 
     axios.get('/api/post/' + id)
@@ -57,6 +56,7 @@ export default defineComponent({
     }
 
     const saveArticle = async () => {
+      await router.go(-1)
       if (article.value.title.length === 0) {
         alert("Please enter the title")
         return
@@ -76,9 +76,8 @@ export default defineComponent({
           gist: article.value.gist,
           content: article.value.content
         })
-        await router.push('/admin/articleListroot')
-        await reload()
       }
+
 
     }
 

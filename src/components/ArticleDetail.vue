@@ -5,7 +5,7 @@
     </div>
     <div class="article date">{{ article.date }}</div>
     <div class="article gist">{{ article.gist }}</div>
-    <div class="article detail_content" v-html="compiledMarkdown()"></div>
+    <div class="article detail-content" v-html="compiledMarkdown()"></div>
   </div>
 </template>
 <script>

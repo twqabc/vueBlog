@@ -1,7 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import ArticleDetail from './components/ArticleDetail.vue'
 import About from './components/About.vue'
-import Home from './Home.vue'
 import ArticleEdit from './components/admin/ArticleEdit.vue'
 import AboutEdit from './components/admin/AboutEdit.vue'
 import ArticleListroot from './components/admin/ArticleListroot.vue'
@@ -35,7 +34,7 @@ export const routes = [
   {
     path: '/',
     name:'home',
-    components: {default: Home, about: About},
+    components: { about: About},
   },
   {
     path: '/articleList',

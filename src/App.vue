@@ -3,11 +3,8 @@
     <div class="container">
       <Bar />
       <Footer />
-      <div class="about">
-        <router-view name="about"></router-view>
-      </div>
-      <router-view v-if="isRouterAlive"></router-view>
-
+      <router-view name="about" />
+      <router-view v-if="isRouterAlive" />
     </div>
   </div>
 </template>

@@ -131,6 +131,17 @@ export default defineComponent({
         alert("now密码输入错误")
       }
     }
+    const namedelete = async () => {
+      const response111 = await axios.get('/api/user/' + nowname.value + "/" + nowpassword.value)
+      if (response111.data.length) {
+        await axios.delete('/api/user/' + nowname.value)
+        alert("账号删除成功,换个账号重新登录吧")
+        localStorage.removeItem("username", name.value)
+        status.value = true
+      } else {
+        alert("now密码输入错误")
+      }
+    }
     return reactive({
       signup,
       name,
@@ -141,7 +152,8 @@ export default defineComponent({
       nowname,
       nowpassword,
       newpassword,
-      passwordupdate
+      passwordupdate,
+      namedelete
     })
   }
 })

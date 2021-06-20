@@ -53,3 +53,12 @@ exports.update = async (n, p) => {
     throw "更改密码出错";
   }
 };
+//删除用户
+exports.delete = async (n) => {
+  try {
+    const col = await postCollection();
+    await col.deleteOne({ name: n });
+  } catch (error) {
+    throw "删除用户出错";
+  }
+};

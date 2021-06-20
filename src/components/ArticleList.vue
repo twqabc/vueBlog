@@ -1,18 +1,21 @@
 <template>
   <div class="container">
-    <div class="article">
-      <h1 class="blog-h1">Blog</h1>
-      <router-link class="nav-item" v-for="item in articleList" v-bind:key="item" :to="'/articleDetail/' + item._id">
-        <div class="inf">
-          <div id="article-title">
-            {{ item.title }}
+    <div class="row">
+      <div class="col-1"></div>
+      <div class="col-10">
+        <router-link class="nav-item" v-for="item in articleList" v-bind:key="item" :to="'/articleDetail/' + item._id">
+          <div class="inf">
+            <div id="article-title">
+              {{ item.title }}
+            </div>
+            <div id="article-date">
+              {{ item.date }}
+            </div>
           </div>
-          <div id="article-date">
-            {{ item.date }}
-          </div>
-        </div>
-        <div class="blank"></div>
-      </router-link>
+          <div class="blank"></div>
+        </router-link>
+      </div>
+      <div class="col-1"></div>
     </div>
   </div>
 </template>
@@ -46,11 +49,6 @@ export default defineComponent({
 }
 .blog-h1 {
   margin-bottom: 20px;
-}
-.article {
-  display: grid;
-  align-items: center;
-  justify-items: center;
 }
 .nav-item {
   color: grey;

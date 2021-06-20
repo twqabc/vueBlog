@@ -41,7 +41,7 @@ route.get("/:n/:p", async (req, res) => {
     console.error(error)
   }
 })
-
+//更新密码
 route.put("/:n/:p", async (req, res) => {
   try {
     const user = await userModel.update(req.params.n,req.params.p)
@@ -50,5 +50,14 @@ route.put("/:n/:p", async (req, res) => {
     console.log(error)
   }
 })
-
+//删除用户
+route.delete("/:n", async (req, res) => {
+  try {
+    await userModel.delete(req.params.n);
+    res.status(204).send();
+  } catch (error) {
+    console.error(error);
+    res.status(500).send();
+  }
+});
 module.exports = route;

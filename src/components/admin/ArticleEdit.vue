@@ -124,7 +124,7 @@ export default defineComponent({
   padding-bottom: 100%;
 }
 #markdown_display {
-  overflow-y: auto;
+  overflow: auto;
   display: inline-block;
   width: 50%;
   height: 0px;
