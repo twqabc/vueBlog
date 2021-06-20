@@ -8,7 +8,6 @@ function handleMenuItemClick(target) {
   // 取消所有active状态和style样式，为了重新触发动画
   navMenuItems.forEach(item => {
     item.classList.remove("active");
-    item.style = "";
   });
   target.classList.add("active");
   // 设置指示条为菜单项的宽度

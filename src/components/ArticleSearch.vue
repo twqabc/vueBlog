@@ -3,13 +3,11 @@
     <div class="article">
       <h1 class="blog-h1">Blog</h1>
       <router-link class="nav-item" v-for="item in articleList" v-bind:key="item" :to="'/articleDetail/' + item._id">
-        <div class="inf">
-          <div id="article-title">
-            {{ item.title }}
-          </div>
-          <div id="article-date">
-            {{ item.date }}
-          </div>
+        <div id="article-title">
+          {{ item.title }}
+        </div>
+        <div id="article-date">
+          {{ item.date }}
         </div>
         <div class="blank"></div>
       </router-link>
@@ -19,13 +17,15 @@
 <script>
 import axios from 'axios'
 import { onMounted, defineComponent, reactive, ref } from 'vue'
+import { useRoute } from "vue-router"
 
 export default defineComponent({
   setup() {
     const articleList = ref("")
+    const route = useRoute()
     const postlistget = onMounted(() => {
       axios
-        .get('/api/post')
+        .patch('/api/post/' + route.params.keyword)
         .then(response => {
           articleList.value = response.data
         })
@@ -41,9 +41,6 @@ export default defineComponent({
 })
 </script>
 <style scoped>
-.inf {
-  text-align: center;
-}
 .blog-h1 {
   margin-bottom: 20px;
 }

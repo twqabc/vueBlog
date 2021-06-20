@@ -4,54 +4,48 @@ import { createStore } from 'vuex'
 export default createStore({
     //状态管理入口
     state: {
-        
         github:"https://github.com/twqabc",
+        word:"https://twqabc.github.io/",
         twitter:"https://twitter.com/twqabc",
         wechat:"http://localhost:8080/src/assets/images/wechat-twqabc.png",
         linkedin:"https://www.linkedin.com/in/%E4%BC%9F%E5%A5%87-%E7%94%B0-160477201/",
-        about: `# NodeJS程序员简历模板
-        本简历模板由国内首家互联网人才拍卖网站「 [JobDeer.com](http://www.jobdeer.com) 」提供。
-
-（括号里的是我们的顾问编写的说明，建议在简历书写完成后统一删除）
-
-## 先讲讲怎样才是一份好的技术简历
-
-首先，一份好的简历不光说明事实，更通过FAB模式来增强其说服力。
-
- - Feature：是什么
- - Advantage：比别人好在哪些地方
- - Benefit：如果雇佣你，招聘方会得到什么好处 
+        about: `
  # 联系方式
-（HR会打印你的简历，用于在面试的时候联系，所以联系方式放到最上边会比较方便）
 
-- 手机：135******** 
-- Email：goodman@gmail.com 
-- QQ/微信号：6*******
-
----
+- 手机：18061887413
+- Email：twqabc@gmail.com
+- QQ/微信号：xltipa
 
 # 个人信息
 
- - 胶布帝/男/1990 
- - 本科/萌鹿大学计算机系 
- - 工作年限：3年
- - 微博：[@JobDeer](http://weibo.com/jobdeer)
- - 技术博客：http://blog.github.io 
- - Github：http://github.com/geekcompany
+- 田伟奇/男/2001
+- 大专/南京财经高等职业技术学校计算机网络专业
+- Github：<a> http://github.com/twqabc </a>
+- Segmentfault: <a> https://segmentfault.com/u/twqabc </a>
+- 期望职位：软件测试实习生
+- 期望薪资：税前月薪2k~，特别喜欢的公司可例外
+- 期望城市：南京
 
- - 期望职位：NodeJS高级程序员，应用架构师
- - 期望薪资：税前月薪15k~20k，特别喜欢的公司可例外
- - 期望城市：北京
 
----
-
-# 工作经历
-（工作经历按逆序排列，最新的在最前边，按公司做一级分组，公司内按二级分组）
-
-## ABC公司 （ 2012年9月 ~ 2014年9月 ）
-        `
-        
+# 开源项目
+- [STU](https://github.com/twqabc/vueBlog)：个人博客网站
+- [WXYZ](https://github.com/twqabc/gp-qxs)：栖霞山网站
+# 技能清单
+        以下均为我熟练使用的技能
+- Web开发：Node
+- Web框架：Django
+- 前端框架：Bootstrap/Vue JS
+- 前端工具：Sass
+- 数据库相关：Mongodb/SQLite
+- 版本管理、文档和自动化部署工具：Git
+- 单元测试：SimpleTest
+- 云和开放平台：微信应用开发 
+# 致谢
+        感谢您花时间阅读我的简历，期待能有机会和您共事。
+        `  
     },
     mutations: {
+        
+        
     }
 })

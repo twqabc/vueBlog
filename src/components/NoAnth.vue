@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="noanth">
-      <h2>404啦，网页找不到咯!</h2>
+      <h1 class="">管理页面需要您登录哦</h1>
       <el-button icon="arrow-left" size="small" @click="goBack">返回</el-button>
     </div>
   </div>
@@ -23,6 +23,7 @@ export default defineComponent({
   },
 })
 </script>
+
 <style scoped>
 .container {
   height: 90vh;

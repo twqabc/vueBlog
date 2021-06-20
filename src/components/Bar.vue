@@ -42,9 +42,17 @@
             <a class="nav-link" :href="store.state.twitter" target="_blank"><i class="ri-twitter-line"></i></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" :href="store.state.wechat" target="_blank"><i class="ri-wechat-2-line"></i></a>
+            <router-link class="nav-link" to="/wechat"><i class="ri-wechat-2-line"></i></router-link>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" :href="store.state.word" target="_blank">
+              <i class="ri-file-word-line"></i></a>
           </li>
         </ul>
+        <form class="d-flex">
+          <input class="form-control me-2" v-model="keyword" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" @click="search">Search</button>
+        </form>
       </div>
     </div>
   </nav>
@@ -52,11 +60,22 @@
 </template>
 <script>
 import store from '../store'
-import { defineComponent, reactive } from 'vue'
+import { defineComponent, reactive, ref } from 'vue'
+import { useRouter } from "vue-router"
+
 export default defineComponent({
   setup() {
+    let keyword = ref('')
+    const router = useRouter()
+
+    const search = () => {
+      router.push("/articleSearch/" + keyword.value)
+    }
+
     return reactive({
       store,
+      keyword,
+      search
     })
   }
 })

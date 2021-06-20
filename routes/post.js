@@ -1,3 +1,4 @@
+const { ElTable } = require("element-plus");
 const express = require("express");
 var route = express.Router();
 
@@ -17,7 +18,24 @@ route.post("/", async (req, res) => {
 route.get("/", async (req, res) => {
   try {
     const posts = await postModel.findAll();
+   
     res.json(posts);
+  } catch (error) {
+    console.error(error);
+    res.status(404).send();
+  }
+});
+//关键字查找文章
+route.patch("/:keyword", async (req, res) => {
+  try {
+    const posts = await postModel.findAll();
+    const keyword = req.params.keyword
+    const filterpost = posts.filter((ele) => {
+      if (ele.title.indexOf(keyword) > -1 || ele.gist.indexOf(keyword) > -1 || ele.gist.indexOf(keyword) > -1) {
+        return ele
+      }
+    })
+    res.json(filterpost)
   } catch (error) {
     console.error(error);
     res.status(404).send();

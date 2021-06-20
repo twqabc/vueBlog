@@ -4,7 +4,7 @@
       博客已萌萌哒运行 {{ longTime }}
     </p>
     <p>
-      © 2018 <a href="#">Mango Ya</a>. 由 <a href="https://cn.vuejs.org/" target="_blank">Vue</a> 强力驱动. Theme By <a href="https://diygod.me/" target="_blank">diygod.me</a>. 京ICP备17071595号-1.
+      © 2021<a href="#">Mango Ya</a>. 由 <a href="https://cn.vuejs.org/" target="_blank">Vue</a> 强力驱动. Theme By <a href="http://weiqi.icu/" target="_blank">wieqi.icu</a>. 京ICP备17071595号-1.
     </p>
   </div>
 </template>

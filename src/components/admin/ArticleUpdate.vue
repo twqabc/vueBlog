@@ -1,16 +1,17 @@
 <template>
+  <h2>修改文章</h2>
   <div id="edit_wrap">
     <div id="return_button">
       <el-button icon="arrow-left" size="small" @click="goBack">返回</el-button>
     </div>
     <div id="edit_title">标题</div>
-    <el-input v-model="title" placeholder="请输入标题"></el-input>
+    <el-input v-model="article.title" placeholder="请输入标题"></el-input>
     <div id="edit_gist">简介</div>
-    <el-input type="textarea" class="gist" :rows="5" placeholder="请输入简介" v-model="gist">
+    <el-input type="textarea" class="gist" :rows="5" placeholder="请输入简介" v-model="article.gist">
     </el-input>
     <div id="edit_content_bt">内容 (Markdown编辑器)</div>
     <div id="markdown">
-      <textarea id="markdown_input" v-model="content" @input="update"></textarea>
+      <textarea id="markdown_input" v-model="article.content" @input="update"></textarea>
       <div id="markdown_display" v-html="compiledMarkdown()"></div>
       <div class="clear"></div>
     </div>
@@ -21,8 +22,8 @@
 </template>
 
 <script>
-import { defineComponent, ref, reactive } from 'vue'
-import { useRouter } from 'vue-router'
+import { defineComponent, ref, reactive, inject } from 'vue'
+import { useRouter, useRoute } from 'vue-router'
 import { getDate } from "../../utils"
 
 import marked from 'marked'
@@ -31,58 +32,62 @@ import axios from 'axios'
 
 export default defineComponent({
   setup() {
-    let title = ref('')
-    let gist = ref('')
-    let content = ref('')
+    let article = ref('')
     const router = useRouter()
+    const route = useRoute()
+    const reload = inject("reload")
+    let id = route.params.id
+
+    axios.get('/api/post/' + id)
+      .then(function (response) {
+        console.log(response.data[0])
+        article.value = response.data[0]
+      })
 
     const compiledMarkdown = function () {
-      return marked(content.value, { sanitize: true })//this.content???????????????
+      return marked(article.value.content, { sanitize: true })
     }
-
     const update = _.debounce(function (e) {
-      content.value = e.target.value
+      article.value.content = e.target.value
     }, 300)
+
 
     const goBack = () => {
       router.go(-1)
     }
 
-    const saveArticle = () => {
-      if (title.value.length === 0) {
+    const saveArticle = async () => {
+      if (article.value.title.length === 0) {
         alert("Please enter the title")
         return
       }
-      if (content.value.length === 0) {
+      if (article.value.content.length === 0) {
         alert("Please enter the content")
         return
       }
-      if (gist.value.length === 0) {
+      if (article.value.gist.length === 0) {
         alert("Please enter the gist")
         return
       } else {
         let date = getDate()
-        axios.post('/api/post', {
-          title: title.value,
+        await axios.put('/api/post/' + id, {
+          title: article.value.title,
           date: date,
-          gist: gist.value,
-          content: content.value
+          gist: article.value.gist,
+          content: article.value.content
         })
-          .then(function () {
-            router.push('/admin/articleListroot')
-          })
-        alert("writer article success")
+        await router.push('/admin/articleListroot')
+        await reload()
       }
+
     }
 
     return reactive({
-      title,
-      gist,
-      content,
       compiledMarkdown,
       update,
       saveArticle,
-      goBack
+      goBack,
+      article
     })
   }
 })

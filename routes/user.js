@@ -42,4 +42,13 @@ route.get("/:n/:p", async (req, res) => {
   }
 })
 
+route.put("/:n/:p", async (req, res) => {
+  try {
+    const user = await userModel.update(req.params.n,req.params.p)
+    res.json(user)
+  } catch (error) {
+    console.log(error)
+  }
+})
+
 module.exports = route;

@@ -5,14 +5,27 @@ import Home from './Home.vue'
 import ArticleEdit from './components/admin/ArticleEdit.vue'
 import AboutEdit from './components/admin/AboutEdit.vue'
 import ArticleListroot from './components/admin/ArticleListroot.vue'
-import a from "./components/Test.vue"
 import NotFound from "./components/NotFound.vue"
+import ArticleUpdate from "./components/admin/ArticleUpdate.vue"
+import ArticleSearch from "./components/ArticleSearch.vue"
+import Wechat from "./components/Wechat.vue"
+import NoAnth from "./components/NoAnth.vue"
 
 export const routes = [
   {
     path: '/articleDetail',
     name: 'articleDetail',
     component: ArticleDetail
+  },
+  {
+    path: '/wechat',
+    name: 'wechat',
+    component: Wechat
+  },
+  {
+    path: '/articleSearch/:keyword',
+    name: 'articleSearch',
+    component: ArticleSearch
   },
   {
     path: '/project',
@@ -43,6 +56,14 @@ export const routes = [
       path: '/articleDetail/:id',
       name: 'articleDetail_id',
       component:ArticleDetail
+    },
+    {
+      path: '/admin/articleUpdate/:id',
+      name: 'Update_id',
+      meta: {
+        auth: true,
+    },
+      component: ArticleUpdate
     },
     {
       path: '/admin/articleEdit/:id',
@@ -77,19 +98,19 @@ export const routes = [
       component:ArticleListroot
     },
     {
-      path: '/admin/a',
-      name: 'a',
-      meta: {
-        auth: true,
-    },
-      component: a
+      path: "/403",
+      name: "noAnth",
+      component: NoAnth
     },
     {
       path: "/404",
       name: "notFound",
       component: NotFound
-    }
-  
+    },
+    {
+      path: '/:catchAll(.*)*',
+      redirect: "/404"
+    },
 ]
 
 export const router = createRouter({

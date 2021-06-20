@@ -26,17 +26,20 @@ import _ from 'lodash'
 export default defineComponent({
   setup() {
     let content = ref('')
+    const router = useRouter()
+
     const compiledMarkdown = function () {
       return marked(content.value, { sanitize: true })
     }
+
     const update = _.debounce(function (e) {
       content.value = e.target.value
     }, 300)
-    const router = useRouter()
-    console.log(router)
+
     const goBack = () => {
       router.go(-1)
     }
+
     const saveArticle = () => {
       if (content.value.length === 0) {
         alert("Please enter the content")
@@ -46,6 +49,7 @@ export default defineComponent({
         store.state.about = content.value
       }
     }
+
     return reactive({
       content,
       compiledMarkdown,
@@ -59,6 +63,11 @@ export default defineComponent({
 </script>
 
 <style scoped>
+* {
+  margin: 0;
+  padding: 0;
+}
+
 #edit_wrap {
   padding: 40px;
 }
@@ -81,19 +90,19 @@ export default defineComponent({
 #markdown {
   text-align: left;
   border: 1px solid #bfcbd9;
-  height: 800px;
 }
 #markdown_input {
-  width: 49%;
+  width: 50%;
   display: inline-block;
-  height: 100%;
+  height: 0px;
+  padding-bottom: 100%;
 }
 #markdown_display {
-  overflow: auto;
+  overflow-y: auto;
   display: inline-block;
-  width: 48%;
-  height: 100%;
-  padding: 1px 0 1px 1%;
+  width: 50%;
+  height: 0px;
+  padding-bottom: 100%;
 }
 #save_button {
   padding: 40px 0;

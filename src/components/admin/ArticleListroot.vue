@@ -1,17 +1,21 @@
 <template>
-  <div class="article">
+  <div class="container">
     <h1 class="blog-h1">Blog</h1>
     <div class="nav-item" v-for="item in articleList" v-bind:key="item">
       <router-link class="nav-item" :to="'/articleDetail/' + item._id">
-        <div id="article-title">
-          {{ item.title }}
-        </div>
-        <div id="article-date">
-          {{ item.date }}
+        <div class="inf">
+          <div id="article-title">
+            {{ item.title }}
+          </div>
+          <div id="article-date">
+            {{ item.date }}
+          </div>
         </div>
       </router-link>
-      <div @click="articleEdit(item._id)" class="article_button edit">修改</div>
-      <div @click="deleteArticle(item._id)" class="article_button delete">删除</div>
+      <div class="button">
+        <div @click="update(item._id)" class="article_button edit">修改</div>
+        <div @click="deleteArticle(item._id)" class="article_button delete">删除</div>
+      </div>
       <div class="blank"></div>
     </div>
   </div>
@@ -19,12 +23,15 @@
 <script>
 import axios from 'axios'
 import { onMounted, defineComponent, reactive, ref, inject } from 'vue'
+import { useRouter } from "vue-router"
+
 
 export default defineComponent({
   setup() {
-
     const articleList = ref("")
     const reload = inject("reload")
+    const router = useRouter()
+
     const stt = onMounted(() => {
       axios
         .get('/api/post')
@@ -35,6 +42,7 @@ export default defineComponent({
           console.log(error);
         });
     })
+
     const deleteArticle = (id) => {
       axios
         .delete('/api/post/' + id)
@@ -45,15 +53,28 @@ export default defineComponent({
           }
         })
     }
+
+    const update = (id) => {
+      router.push("/admin/articleUpdate/" + id)
+    }
+
     return reactive({
       stt,
       articleList,
-      deleteArticle
+      deleteArticle,
+      update
     })
   }
 })
 </script>
 <style scoped>
+.inf {
+  text-align: center;
+}
+.container {
+  display: grid;
+  place-items: center;
+}
 .blog-h1 {
   margin-bottom: 20px;
 }
@@ -94,5 +115,8 @@ export default defineComponent({
   color: #222;
   font-size: 14px;
   cursor: pointer;
+}
+.button {
+  text-align: center;
 }
 </style>

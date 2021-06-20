@@ -18,9 +18,8 @@ export default {
   setup() {
     let article = ref(12)
     const route = useRoute()
-    console.log(route)
     let id = route.params.id
-    console.log(route.params.id)
+
     axios.get('/api/post/' + id)
       .then(function (response) {
         article.value = response.data[0]
