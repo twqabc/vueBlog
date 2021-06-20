@@ -41,13 +41,13 @@
           <li class="nav-item">
             <a class="nav-link" :href="store.state.twitter" target="_blank"><i class="ri-twitter-line"></i></a>
           </li>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <router-link class="nav-link" to="/wechat"><i class="ri-wechat-2-line"></i></router-link>
-          </li>
-          <li class="nav-item">
+          </li> -->
+          <!-- <li class="nav-item">
             <a class="nav-link" :href="store.state.word" target="_blank">
               <i class="ri-file-word-line"></i></a>
-          </li>
+          </li> -->
         </ul>
         <form class="d-flex">
           <input class="form-control me-2" v-model="keyword" type="search" placeholder="Search" aria-label="Search">
