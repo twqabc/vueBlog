@@ -1,6 +1,6 @@
 # vue-mongodb-blog
 
-[预览](http://weiqi.icu/)
+[预览vue-mongodb-blog](http://weiqi.icu/)
 
 ## 主要技术
 1. Node.js 
