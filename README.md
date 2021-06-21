@@ -1,6 +1,6 @@
 # vue-mongodb-blog
 
-[《一个 Vue + Node + MongoDB 博客系统》](http://weiqi.icu/)
+[预览](http://weiqi.icu/)
 
 ## 主要技术
 1. Node.js 
