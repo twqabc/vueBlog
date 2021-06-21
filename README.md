@@ -2,6 +2,10 @@
 
 [预览vue-mongodb-blog](http://weiqi.icu/)
 
+## 测试账号
+twqabc
+密码123123
+
 ## 主要技术
 1. Node.js 
 2. MongoDB 
