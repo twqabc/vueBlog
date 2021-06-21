@@ -47,7 +47,8 @@ export default {
   text-align: center;
   width: 100%;
   min-height: 50px;
-  position: fixed;
-  bottom: 15px;
+  position: relative;
+  top: 20px;
+  bottom: 5px;
 }
 </style>

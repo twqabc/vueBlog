@@ -2,10 +2,10 @@
   <div>
     <div class="container">
       <Bar />
-      <Footer />
       <router-view name="about" />
       <router-view v-if="isRouterAlive" />
     </div>
+    <Footer />
   </div>
 </template>
 

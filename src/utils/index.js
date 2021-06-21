@@ -2,7 +2,7 @@ export const getDate = () => {
   let mydate, y, m, d, hh, mm, ss;
   mydate = new Date()
   y = mydate.getFullYear()
-  m = mydate.getMonth()
+  m = mydate.getMonth()+1
   d = mydate.getDate()
   hh = mydate.getHours()
   mm = mydate.getMinutes()

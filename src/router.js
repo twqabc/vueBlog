@@ -23,6 +23,11 @@ export const routes = [
   },
   {
     path: '/articleSearch/:keyword',
+    name: 'articleSearch_id',
+    component: ArticleSearch
+  },
+  {
+    path: '/articleSearch',
     name: 'articleSearch',
     component: ArticleSearch
   },
