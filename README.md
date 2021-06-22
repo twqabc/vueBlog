@@ -1,6 +1,7 @@
 # vue-mongodb-blog
 
-## 练习开发网站认知
+
+### 很简单，练习用的
 
 [预览vue-mongodb-blog](http://weiqi.icu/)
 
