@@ -1,5 +1,7 @@
 # vue-mongodb-blog
 
+## 练习开发网站认知
+
 [预览vue-mongodb-blog](http://weiqi.icu/)
 
 ## 测试账号
