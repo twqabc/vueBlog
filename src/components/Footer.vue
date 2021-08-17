@@ -41,14 +41,17 @@ export default {
 
 <style >
 .fcontainer {
-  color: #888;
+  color: rgb(0, 0, 0);
   font-size: 12px;
   line-height: 1.5;
   text-align: center;
   width: 100%;
-  min-height: 50px;
+  /* min-height: 50px;
   position: relative;
   top: 20px;
-  bottom: 5px;
+  bottom: 5px; */
+}
+a{
+  color: black;
 }
 </style>

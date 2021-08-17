@@ -41,7 +41,6 @@ export default {
   justify-items: center;
 }
 .article {
-  /* position: absolute; */
   padding-bottom: 20px;
 }
 </style>

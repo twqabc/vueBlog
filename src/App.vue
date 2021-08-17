@@ -1,16 +1,13 @@
 <template>
-  <div>
-    <div class="container">
+    <div class="containerr">
       <Bar />
-      <router-view name="about" />
+      <router-view name="articleList" />
       <router-view v-if="isRouterAlive" />
     </div>
-    <Footer />
-  </div>
+     <div class="fo"><Footer /></div>
 </template>
 
 <script>
-
 
 import Bar from './components/Bar.vue'
 import Footer from './components/Footer.vue'
@@ -44,10 +41,14 @@ export default {
 </script>
 
 <style>
-/* .about {
-  padding-top: 30px;
-  display: grid;
-  align-items: center;
-  justify-items: center;
-} */
+
+.containerr {
+     max-width: 90%;
+     min-height: 100vh;
+    margin: 0 auto -4em;
+}
+.fo {
+ height: 50px;
+ height: 4em;
+}
 </style>

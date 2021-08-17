@@ -1,60 +1,25 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light ">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">TwqAbc</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <router-link class="nav-link" to="/">Home</router-link>
-          </li>
-          <li class="nav-item">
-            <router-link class="nav-link" to="/articleList">Blog</router-link>
-          </li>
-          <li class="nav-item">
-            <router-link class="nav-link" to="/project">Anonymous</router-link>
-          </li>
-          <li class="nav-item">
-            <router-link class="nav-link" to="/signIn">Signin</router-link>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Manage
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li class="dropdown-item">
-                <router-link class="nav-link" to="/admin/articleEdit">write_art</router-link>
-              </li>
-              <li class="dropdown-item">
-                <router-link class="nav-link" to="/admin/aboutEdit">write_abt</router-link>
-              </li>
-              <li class="dropdown-item">
-                <router-link class="nav-link" to="/admin/articleListroot">art_list</router-link>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" :href="store.state.github" target="_blank"><i class="ri-github-line"></i></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" :href="store.state.twitter" target="_blank"><i class="ri-twitter-line"></i></a>
-          </li>
-          <li class="nav-item">
-            <router-link class="nav-link" to="/wechat"><i class="ri-wechat-2-line"></i></router-link>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" :href="store.state.word" target="_blank">
-              <i class="ri-file-word-line"></i></a>
-          </li>
-        </ul>
-        <form class="d-flex">
-          <input class="form-control me-2" v-model="keyword" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" @click="search">Search</button>
-        </form>
-      </div>
-    </div>
+<nav>
+ <ul>
+        <li>    <router-link class="nav-link" to="/">Blog</router-link></li>
+
+        <li>    <router-link class="nav-link" to="/project">Anonymous</router-link></li>
+
+        <li>   <router-link class="nav-link" to="/signIn">Signin</router-link></li>
+
+          <li>      <router-link class="nav-link" to="/admin/articleEdit">write_art</router-link></li>
+
+           <li>     <router-link class="nav-link" to="/admin/articleListroot">art_list</router-link></li>
+
+         <li>   <a class="nav-link" :href="store.state.github" target="_blank"><i class="ri-github-line"></i></a></li>
+
+         <li>   <a class="nav-link" :href="store.state.twitter" target="_blank"><i class="ri-twitter-line"></i></a></li>
+
+       <li>     <router-link class="nav-link" to="/wechat"><i class="ri-wechat-2-line"></i></router-link></li>
+
+        <li>  <input placeholder="Search" v-model="keyword" aria-label="Search"></li>
+        <li>  <button  @click="search">Search</button></li>
+</ul>
   </nav>
 
 </template>
@@ -69,6 +34,7 @@ export default defineComponent({
     const router = useRouter()
 
     const search = () => {
+      console.log(keyword.value)
       router.push("/articleSearch/" + keyword.value)
     }
 
@@ -81,8 +47,12 @@ export default defineComponent({
 })
 </script>
 <style scoped>
-.content {
-  padding-top: 10px;
+li {
+  display: inline-block;
+  color: black;
+}
+a {
+  color: rgb(17, 16, 16);
 }
 @import url("https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css");
 </style>

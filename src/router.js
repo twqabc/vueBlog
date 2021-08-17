@@ -1,14 +1,13 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import ArticleDetail from './components/ArticleDetail.vue'
-import About from './components/About.vue'
 import ArticleEdit from './components/admin/ArticleEdit.vue'
-import AboutEdit from './components/admin/AboutEdit.vue'
 import ArticleListroot from './components/admin/ArticleListroot.vue'
 import NotFound from "./components/NotFound.vue"
 import ArticleUpdate from "./components/admin/ArticleUpdate.vue"
 import ArticleSearch from "./components/ArticleSearch.vue"
 import Wechat from "./components/Wechat.vue"
 import NoAnth from "./components/NoAnth.vue"
+import ArticleList from './components/ArticleList.vue'
 
 export const routes = [
   {
@@ -39,22 +38,17 @@ export const routes = [
   {
     path: '/',
     name:'home',
-    components: { about: About},
+    components: { articleList: ArticleList},
   },
   {
     path: '/articleList',
     name: 'articleList',
-    component: () => import('./components/ArticleList.vue')
+    components: ArticleList
   },
    {
         path: '/signin',
         name: 'signin',
         component: () => import('./components/Signin.vue')
-    },
-    {
-      path: '/about',
-      name:'about',
-      component: About
     },
     {
       path: '/articleDetail/:id',
@@ -84,14 +78,6 @@ export const routes = [
       auth: true,
   },
     component: ArticleEdit
-    },
-    {
-      path: '/admin/aboutEdit',
-      name: 'aboutEdit',
-      meta: {
-        auth: true,
-    },
-      component: AboutEdit
     },
     {
       path: '/admin/articleListroot',
